@@ -1,3 +1,6 @@
+import json
+
+
 def shortest_chain(network, A, B):
     queue = [(A, 0)]
     visited_friends = {A}
@@ -13,8 +16,18 @@ def shortest_chain(network, A, B):
     return -1
 
 
+def load_data():
+    with open('G:\Python\social-network\Shoreline_Challenge\data.json') as file:
+        data = json.load(file)
+    return data
+
+
 if __name__ == '__main__':
-    network = {'A': ['B', 'C'], 'B': ['A', 'D'], 'C': ['A', 'E'], 'D': ['B'], 'E': ['C']}
-    A = 'C'
-    B = 'D'
-    print(shortest_chain(network, A, B))
+    A = 'A'
+    B = 'B'
+    network = load_data()
+    print("Network: ", network)
+    if shortest_chain(network, A, B) == -1:
+        print("There is no chain between user " + A + " and user " + B + "!")
+    else:
+        print("Chain length: " + str(shortest_chain(network, A, B)))
