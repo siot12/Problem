@@ -1,4 +1,4 @@
-# Shoreline_Challenge
+# Problem
 ## Challenge
 Let's build a social network. 
 
